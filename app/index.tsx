@@ -161,18 +161,28 @@ export default function HomeScreen() {
     }
   })
 
-  const lockEnabled = useValue(settings$.appLockEnabled)
   const lockHash = useValue(settings$.appLockPinHash)
   const [unlocked, setUnlocked] = useState(false)
-  const lockActive = Boolean(lockEnabled && lockHash && !unlocked)
+  const lockActive = Boolean(lockHash && !unlocked)
+  const needsSetup = !lockHash && !unlocked
+
+  useEffect(() => {
+    if (needsSetup) {
+      ui$.appLockSetupOpen.set(true)
+    }
+  }, [needsSetup])
 
   useObserveEffect(settings$.appLockPinHash, () => {
     setUnlocked(false)
   })
 
-  return lockActive ? (
-    <AppLockGate onUnlock={() => setUnlocked(true)} />
-  ) : (
-    nIf(scriptOnStart, <MainPage contentJs={scriptOnStart} />)
-  )
+  if (lockActive) {
+    return <AppLockGate onUnlock={() => setUnlocked(true)} />
+  }
+
+  if (needsSetup) {
+    return nIf(scriptOnStart, <MainPage contentJs={scriptOnStart} />)
+  }
+
+  return nIf(scriptOnStart, <MainPage contentJs={scriptOnStart} />)
 }

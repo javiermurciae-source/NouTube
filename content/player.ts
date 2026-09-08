@@ -169,6 +169,10 @@ export function handleMutations(mutations: MutationRecord[]) {
 }
 
 export function handleVideoPlayer(el: any) {
+  // Guard: don't re-bind listeners on the same player element
+  if (el.__noutubeHandled) return
+  el.__noutubeHandled = true
+
   player = el
   extendPlaybackRates(player)
   extendPlaybackQuality(player)
@@ -178,6 +182,28 @@ export function handleVideoPlayer(el: any) {
   applyCaptionFontScale(el)
   let title = ''
   let duration = 0
+
+  // Auto-play on watch pages when the player first buffers or pauses
+  if (document.location.pathname === '/watch') {
+    let autoPlayAttempted = false
+    const tryAutoPlay = () => {
+      if (autoPlayAttempted) return
+      const state = el.getPlayerState?.()
+      // State 3 = buffering, State 2 = paused, State -1 = unstarted
+      if (state === 3 || state === 2 || state === -1) {
+        autoPlayAttempted = true
+        setTimeout(() => {
+          try {
+            el.playVideo()
+          } catch {}
+        }, 150)
+      }
+    }
+    el.addEventListener('onStateChange', tryAutoPlay)
+    // Also try after a short delay in case the player is already ready
+    setTimeout(tryAutoPlay, 500)
+    setTimeout(tryAutoPlay, 1500)
+  }
 
   const saveProgress = throttle((currentTime) => {
     const url = player.getVideoUrl()

@@ -25,14 +25,13 @@ export const verifyPin = (pin: string) => {
 }
 
 export const setAppPin = (pin: string) => {
-  settings$.assign({ appLockPinHash: hashPin(pin), appLockEnabled: true })
+  settings$.assign({ appLockPinHash: hashPin(pin) })
 }
 
 export const clearAppLock = () => {
-  settings$.assign({ appLockPinHash: '', appLockEnabled: false })
+  settings$.assign({ appLockPinHash: '' })
 }
 
 export const isAppLockActive = () => {
-  const s = settings$.get()
-  return Boolean(s.appLockEnabled && s.appLockPinHash)
+  return Boolean(settings$.appLockPinHash.get())
 }

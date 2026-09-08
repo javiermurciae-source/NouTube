@@ -46,7 +46,7 @@ export const AppLockSetupModal: React.FC = () => {
   return (
     <BaseCenterModal onClose={close}>
       <View className="p-5">
-        <NouText className="text-lg font-bold">{hasPin ? 'Cambiar PIN' : 'Crear PIN'}</NouText>
+        <NouText className="text-lg font-bold">{hasPin ? 'Cambiar clave' : 'Crear clave'}</NouText>
         <NouText className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
           4-8 dígitos. Se pedirá al abrir la app.
         </NouText>

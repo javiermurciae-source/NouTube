@@ -274,28 +274,16 @@ export const SettingsPreferencesContent = () => {
             isLast={false}
           />
           <SettingsActionRow
-            label={settings.appLockPinHash ? 'Bloqueo con PIN (activado)' : 'Bloqueo con PIN'}
+            label={settings.appLockPinHash ? 'Clave de acceso (activada)' : 'Clave de acceso'}
             description={
               settings.appLockPinHash
-                ? settings.appLockEnabled
-                  ? 'Pide PIN al abrir la app. Toca para cambiar.'
-                  : 'PIN guardado pero desactivado. Toca para activar.'
-                : 'Pide un PIN al abrir la app'
+                ? 'Protege la app al abrir. Toca para cambiar la clave.'
+                : 'Configura una clave para proteger la app'
             }
             icon="lock"
             onPress={() => ui$.appLockSetupOpen.set(true)}
-            isLast={!settings.appLockPinHash && isWeb}
+            isLast={isWeb}
           />
-          {nIf(
-            Boolean(settings.appLockPinHash),
-            <SettingsToggleRow
-              label="Activar bloqueo con PIN"
-              icon="lock"
-              value={settings.appLockEnabled}
-              onPress={() => settings$.appLockEnabled.set(!settings.appLockEnabled)}
-              isLast={isWeb}
-            />,
-          )}
           {nIf(
             !isWeb,
             <SettingsToggleRow

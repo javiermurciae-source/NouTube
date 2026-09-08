@@ -43,7 +43,7 @@ export const AppLockGate: React.FC<{ onUnlock: () => void }> = ({ onUnlock }) =>
   return (
     <View className="flex-1 items-center justify-center bg-zinc-100 px-8 dark:bg-zinc-950">
       <NouText className="text-2xl font-bold">NouTube</NouText>
-      <NouText className="mt-2 text-zinc-600 dark:text-zinc-400">Introduce tu PIN para desbloquear</NouText>
+      <NouText className="mt-2 text-zinc-600 dark:text-zinc-400">Introduce tu clave para desbloquear</NouText>
       <View className="mt-6 flex-row gap-3">
         {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
           <View

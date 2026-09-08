@@ -67,13 +67,16 @@ try {
 }
 
 async function initObserver() {
-  const player = document.querySelector('#movie_player')
-  if (player) {
-    handleVideoPlayer(player)
+  const existingPlayer = document.querySelector('#movie_player')
+  if (existingPlayer) {
+    handleVideoPlayer(existingPlayer)
   }
   const observer = new MutationObserver((mutations) => {
-    if (!player) {
-      handleMutations(mutations)
+    // Re-check on every mutation: SPA navigation replaces #movie_player
+    const currentPlayer = document.querySelector('#movie_player')
+    if (currentPlayer && currentPlayer !== (window as any).__noutubeLastPlayer) {
+      ;(window as any).__noutubeLastPlayer = currentPlayer
+      handleVideoPlayer(currentPlayer)
     }
     handleDialogs()
   })
