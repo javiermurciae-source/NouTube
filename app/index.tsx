@@ -1,7 +1,8 @@
 import { BackHandler } from 'react-native'
 import { useEffect, useRef, useState } from 'react'
-import { useObserveEffect } from '@legendapp/state/react'
+import { useObserveEffect, useValue } from '@legendapp/state/react'
 import { ui$ } from '@/states/ui'
+import { AppLockGate } from '@/components/lock/AppLockGate'
 import { openSharedUrl } from '@/lib/page'
 import { Asset } from 'expo-asset'
 import { useIncomingShare } from 'expo-sharing'
@@ -160,5 +161,18 @@ export default function HomeScreen() {
     }
   })
 
-  return nIf(scriptOnStart, <MainPage contentJs={scriptOnStart} />)
+  const lockEnabled = useValue(settings$.appLockEnabled)
+  const lockHash = useValue(settings$.appLockPinHash)
+  const [unlocked, setUnlocked] = useState(false)
+  const lockActive = Boolean(lockEnabled && lockHash && !unlocked)
+
+  useObserveEffect(settings$.appLockPinHash, () => {
+    setUnlocked(false)
+  })
+
+  return lockActive ? (
+    <AppLockGate onUnlock={() => setUnlocked(true)} />
+  ) : (
+    nIf(scriptOnStart, <MainPage contentJs={scriptOnStart} />)
+  )
 }

@@ -29,6 +29,7 @@ import { resolveI18nLanguageFromExpoLocale } from '@/lib/i18n'
 import { settings$ } from '@/states/settings'
 import { TranslationCard } from '../translation/TranslationCard'
 import { MoveBookmarkModal } from '../modal/MoveBookmarkModal'
+import { AppLockSetupModal } from '../modal/AppLockSetupModal'
 import { UndoToast } from '../UndoToast'
 
 export const MainPage: React.FC<{ contentJs: string }> = ({ contentJs }) => {
@@ -98,6 +99,7 @@ export const MainPage: React.FC<{ contentJs: string }> = ({ contentJs }) => {
       <PlaybackQualityModal />
       <ToolsModal />
       <ShareModal />
+      <AppLockSetupModal />
       {nIf(!isWeb, <TranslationCard />)}
       <UndoToast />
     </QueryClientProvider>

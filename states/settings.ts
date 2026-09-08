@@ -58,6 +58,8 @@ export interface SettingsSnapshot {
   proxyType: 'http' | 'socks'
   proxyHost: string
   proxyPort: string
+  appLockEnabled: boolean
+  appLockPinHash: string
 }
 
 interface Store extends SettingsSnapshot {
@@ -164,6 +166,15 @@ export const normalizeSettings = <T extends Partial<SettingsSnapshot> | undefine
   if (typeof data.proxyPort !== 'string') {
     data.proxyPort = ''
   }
+  if (typeof (data as any).appLockEnabled !== 'boolean') {
+    ;(data as any).appLockEnabled = false
+  }
+  if (typeof (data as any).appLockPinHash !== 'string') {
+    ;(data as any).appLockPinHash = ''
+  }
+  if ((data as any).appLockEnabled && !(data as any).appLockPinHash) {
+    ;(data as any).appLockEnabled = false
+  }
   if (typeof data.defaultZoom !== 'number') {
     data.defaultZoom = 100
   }
@@ -233,6 +244,8 @@ export const getSettingsSnapshot = (value: Partial<Store> | undefined = settings
   proxyType: value?.proxyType === 'socks' ? 'socks' : 'http',
   proxyHost: typeof value?.proxyHost === 'string' ? value.proxyHost : '',
   proxyPort: typeof value?.proxyPort === 'string' ? value.proxyPort : '',
+  appLockEnabled: Boolean((value as any)?.appLockEnabled) && typeof (value as any)?.appLockPinHash === 'string' && Boolean((value as any).appLockPinHash),
+  appLockPinHash: typeof (value as any)?.appLockPinHash === 'string' ? (value as any).appLockPinHash : '',
 })
 
 export const settings$ = observable<Store>({
@@ -292,6 +305,8 @@ export const settings$ = observable<Store>({
   proxyType: 'http',
   proxyHost: '',
   proxyPort: '',
+  appLockEnabled: false,
+  appLockPinHash: '',
   downloadPath: '',
   downloadUseCookies: false,
   downloadPresets: [],

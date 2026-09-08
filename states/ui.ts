@@ -43,6 +43,7 @@ interface Store {
   toolsModalOpen: boolean
   toolsModalUrl: string
   shareModalUrls: { pageUrl: string; videoUrl: string } | null
+  appLockSetupOpen: boolean
 
   translation: {
     id: string
@@ -89,6 +90,7 @@ export const ui$ = observable<Store>({
   toolsModalOpen: false,
   toolsModalUrl: '',
   shareModalUrls: null,
+  appLockSetupOpen: false,
 
   translation: null,
 
