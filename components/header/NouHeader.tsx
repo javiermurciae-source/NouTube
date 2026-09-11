@@ -277,10 +277,11 @@ export const NouHeader: React.FC<{ getNoutube: () => any }> = ({ getNoutube }) =
               onPress={() => ui$.libraryModalOpen.set(true)}
             />,
           )}
-          {nIf(
-            !isYTMusic && feedsEnabled,
-            <MaterialButton color={headerControlColor} name="rss-feed" onPress={() => ui$.feedModalOpen.set(true)} />,
-          )}
+          <MaterialButton
+            color={headerControlColor}
+            name={isYTMusic ? 'ondemand-video' : 'library-music'}
+            onPress={onToggleHome}
+          />
           {nIf(!isWeb && showBackButtonInHeader, <MaterialButton color={headerControlColor} name="arrow-back" onPress={goBack} />)}
           {nIf(!isWeb && showForwardButtonInHeader, <MaterialButton color={headerControlColor} name="arrow-forward" onPress={goForward} />)}
           {nIf(!isWeb && showReloadButtonInHeader, <MaterialButton color={headerControlColor} name="refresh" onPress={reloadPage} />)}
