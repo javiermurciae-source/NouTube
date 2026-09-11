@@ -195,15 +195,15 @@
       "hint": "Sprache auswählen oder Systemsprache folgen."
     },
     "importSettings": "Einstellungen importieren",
-    "importSettingsDescription": "Einstellungen aus einer NouTube-Einstellungsdatei wiederherstellen",
+    "importSettingsDescription": "Einstellungen aus einer Youtubeviwer-Einstellungsdatei wiederherstellen",
     "importSettingsDone": "Importiert: {{sections}}",
     "exportSettings": "Einstellungen exportieren",
     "groupYouTube": "YouTube",
-    "groupNouTube": "NouTube",
+    "groupYoutubeviwer": "Youtubeviwer",
     "preferencesComments": "Kommentare",
     "sidebar": "Seitenleiste",
     "preferencesYouTubeHint": "YouTube-Voreinstellungen",
-    "preferencesNouTubeHint": "NouTube-Voreinstellungen"
+    "preferencesYoutubeviwerHint": "Youtubeviwer-Voreinstellungen"
   },
   "sync": {
     "label": "Synchronisieren",

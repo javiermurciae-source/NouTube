@@ -17,7 +17,7 @@ const intentFilters = [
 
 module.exports = ({ config }: { config: ExpoConfig }) => {
   return {
-    name: 'NouTube',
+    name: 'Youtubeviwer',
     slug: 'noutube',
     version,
     icon: './assets/images/icon.png',

@@ -332,11 +332,11 @@ export const SettingsModal = () => {
               </View>
             </SettingsSection>
 
-            <SettingsSection label={t('settings.groupNouTube')}>
+            <SettingsSection label="Youtubeviwer">
               <View className={surfaceCls}>
                 <SettingsNavRow
                   title={t('settings.preferences')}
-                  description={t('settings.preferencesNouTubeHint')}
+                  description="Preferencias de la aplicación"
                   icon="toggle-on"
                   onPress={() => pushPage('preferences')}
                 />
@@ -371,25 +371,6 @@ export const SettingsModal = () => {
                   description={t('settings.toolsHint')}
                   icon="build"
                   onPress={() => pushPage('tools')}
-                  isLast
-                />
-              </View>
-            </SettingsSection>
-
-            <SettingsSection label={t('about.label')}>
-              <View className={surfaceCls}>
-                <SettingsNavRow
-                  title={t('about.label')}
-                  description={t('about.hint')}
-                  icon="info-outline"
-                  meta={`v${appVersion}`}
-                  onPress={() => pushPage('about')}
-                />
-                <SettingsNavRow
-                  title={t('changelog.label')}
-                  description={t('changelog.hint')}
-                  icon="history"
-                  onPress={() => pushPage('changelog')}
                   isLast
                 />
               </View>

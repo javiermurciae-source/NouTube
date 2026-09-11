@@ -370,7 +370,7 @@
     "importTakeout": "Import from YouTube takeout",
     "exportLabel": "Export bookmarks to a CSV file",
     "importSettings": "Import settings",
-    "importSettingsDescription": "Restore settings from a NouTube settings file",
+    "importSettingsDescription": "Restore settings from a Youtubeviwer settings file",
     "importSettingsConfirm": "This replaces your current settings, blocklist, user styles and custom scripts. Continue?",
     "importSettingsWithScriptsConfirm": "This file contains {{count}} enabled custom script(s), which can run code inside YouTube. Only continue if you trust the file. Your current settings, blocklist, user styles and custom scripts will be replaced.",
     "importSettingsDone": "Imported: {{sections}}",
@@ -380,11 +380,11 @@
     "injectCookieTitle": "Inject auth cookie into the webview",
     "injectCookieHint": "Copy the Cookie header value from your PC browser. This is a workaround when you couldn't login with email/password.",
     "groupYouTube": "YouTube",
-    "groupNouTube": "NouTube",
+    "groupYoutubeviwer": "Youtubeviwer",
     "preferencesComments": "Comments",
     "sidebar": "Sidebar",
     "preferencesYouTubeHint": "YouTube preferences",
-    "preferencesNouTubeHint": "NouTube preferences"
+    "preferencesYoutubeviwerHint": "Youtubeviwer preferences"
   },
   "native": {
     "format_bestQuality": "Best quality",
