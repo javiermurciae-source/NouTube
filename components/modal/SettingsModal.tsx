@@ -353,13 +353,7 @@ export const SettingsModal = () => {
 
             <SettingsSection label={t('settings.tools')}>
               <View className={surfaceCls}>
-                <SettingsNavRow
-                  title={t('sync.label')}
-                  description={user?.email || t('settings.syncHintShort')}
-                  icon="sync"
-                  meta={formatPlanLabel(plan)}
-                  onPress={() => pushPage('sync')}
-                />
+                
                 <SettingsNavRow
                   title={t('settings.transfer')}
                   description={t('settings.transferHint')}
