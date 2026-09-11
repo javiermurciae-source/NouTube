@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>jp.nonbili.noutube</id>
+  <id>com.youtubeviwer.app</id>
 
   <name>NouTube</name>
   <summary>YouTube and YouTube Music in a single app</summary>
@@ -36,7 +36,7 @@
     <keyword>yt-dlp</keyword>
   </keywords>
 
-  <launchable type="desktop-id">jp.nonbili.noutube.desktop</launchable>
+  <launchable type="desktop-id">com.youtubeviwer.app.desktop</launchable>
   <screenshots>
     <screenshot type="default">
       <image>https://raw.githubusercontent.com/nonbili/NouTube-Desktop/942f89c4def0dabaa89fa0e08cbe3942bcb76926/metadata/screenshots/1.png</image>

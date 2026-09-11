@@ -26,7 +26,7 @@ module.exports = ({ config }: { config: ExpoConfig }) => {
     newArchEnabled: true,
     ios: {
       supportsTablet: true,
-      bundleIdentifier: 'jp.nonbili.noutube',
+      bundleIdentifier: 'com.youtubeviwer.app',
     },
     android: {
       versionCode,
@@ -37,7 +37,7 @@ module.exports = ({ config }: { config: ExpoConfig }) => {
         backgroundColor: '#ffffff',
       },
       predictiveBackGestureEnabled: false,
-      package: 'jp.nonbili.noutube',
+      package: 'com.youtubeviwer.app',
       intentFilters,
     },
     web: {

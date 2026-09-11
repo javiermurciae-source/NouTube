@@ -1,4 +1,4 @@
-appId: jp.nonbili.noutube
+appId: com.youtubeviwer.app
 productName: NouTube
 directories:
   buildResources: build
