@@ -163,8 +163,8 @@ export default function HomeScreen() {
 
   const lockHash = useValue(settings$.appLockPinHash)
   const [unlocked, setUnlocked] = useState(false)
-  const lockActive = Boolean(lockHash && !unlocked)
-  const needsSetup = !lockHash && !unlocked
+  const lockActive = !unlocked
+  const needsSetup = false
 
   useEffect(() => {
     if (needsSetup) {
